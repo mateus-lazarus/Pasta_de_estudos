@@ -326,13 +326,82 @@ if () {
 
 
 
+........................................................................... 
 
 
 
+FINAL CLASS or FINAL FUNCTION
+
+O keyword "final" quando antes de classes e métodos os tornam impossível de herdar e sobrescrever, respectivamente.
+É perfeito para classes que não foram feitas para herança ou métodos que não podem ser subreescritos.
+
+
+        final class A{
+            public function f(){
+                echo 'f';
+            }
+        }
+
+        class b extends a{
+            public function x(){
+                echo 'x';
+            }
+        }
+
+retorna no terminal :
+
+
+        Class b may not inherit from final class (A)
+
+
+Com métodos o caso é parecido
+
+        class A{
+            public final function f(){
+                echo 'f';
+            }
+        }
+
+        class b extends a{
+            public function f(){
+                echo 'minha implementação';
+            }
+        }
+
+retorna no terminal :
+
+
+        Cannot override final method A::f()
+
+
+Fonte : https://pt.stackoverflow.com/questions/227213/para-que-serve-final-em-php
 
 
 
+........................................................................... 
 
+
+
+IMPLEMENTS vs EXTENDS em PHP 
+
+"Implements" é uma keyword que traz métodos de uma "Interface" para uma classe, é um meio de proteger protocolos
+        de uso de certos dados.
+
+Exemplo :
+
+    I have an e-commerce platform featuring multiple payment classes that all follow the same design.
+    When a new payment class should be added, it's really easy to follow the defined design of the interface
+    to ensure that all bits and pieces are there, from the beginning.
+
+
+Já o exemplo de Extends é diferente : 
+
+    I have one class called sessions with two child classes named sessioncookies and databasesessions. sessioncookies
+    and databasesessions, together inherit a number of mutual config options from their parent sessions, making it easy
+    to change a config option to affect all sorts of eventual visitor data storage.
+
+
+Fonte : https://stackoverflow.com/questions/4961906/when-to-implement-and-extend
 
 
 
