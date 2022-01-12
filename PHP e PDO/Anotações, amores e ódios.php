@@ -196,9 +196,95 @@ PASSAR INFORMAÇÕES POR REFERÊNCIA E POR VALOR
             
 
 
+........................................................................... 
 
 
 
+INJEÇÃO DE DEPENDÊNCIA
+
+Um conceito de boas práticas para classes
+
+
+
+........................................................................... 
+
+
+
+TRANSAÇÕES NO BANCO DE DADOS
+
+São ações com o Banco de dados que :
+        Funcionam na sua totalidade com êxito.
+        Em caso dê erro, tudo estará como antes da ação ocorrer.
+
+
+Para iniciar uma transação usa-se 
+        $connection->beginTransaction();
+
+Para enviá-la ao Banco usa-se
+        $connection->commit();
+
+Para voltar ao checkpoint anterior e CANCELAR A TRANSAÇÃO
+        $connection->rollBack();
+
+
+Exemplo :
+    <?php 
+        $pdo->beginTransaction();
+
+        $stmt = $pdo->prepare('INSERT INTO students (name, birth_date) VALUES (?, ?);');
+        $stmt->bindValue(1, $student->name());
+        $stmt->bindValue(2, $student->birthDate()->format('Y-m-d');
+
+        $stmt->execute();
+    ?>
+
+
+
+........................................................................... 
+
+
+
+PDO ATRIBUTOS https://www.php.net/manual/en/pdo.setattribute.php
+
+- Para visualizações de erros ATTR_ERRMODE como ERRMODE_EXCEPTION (definido como o padrão a partir do PHP 8)
+
+- Converter '' para null ou null para '', ATTR_ORACLE_NULLS
+
+- Número para Strings, ATTR_STRINGIFY_FETCHES
+
+- Timeout para requisições, ATTR_TIMEOUT
+
+- Para quando começar transações não for possível, ATTR_AUTOCOMMIT 
+
+- Emule * prepare statements * , ATTR_EMULATE_PREPARES 
+
+- Definir o FETCHMODE padrão, ATTR_DEFAULT_FETCH_MODE
+
+
+
+........................................................................... 
+
+
+
+FOREIGN KEY (x) REFERENCES (y)(z)
+
+Criar tabelas relacionais, como por exemplo a lista de números de estudantes.
+
+Todo número é de um estudante.
+Alguns estudantes podem ter mais de um número.
+
+Exemplo : 
+    CREATE TABLE IF NOT EXISTS phones (
+            id INTEGER PRIMARY KEY,
+            area_code TEXT,
+            number TEXT,
+            student_id INTEGER,
+            FOREIGN KEY (student_id) REFERENCES students(id)
+        );
+
+
+
+........................................................................... 
 
 
 
