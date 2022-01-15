@@ -4,6 +4,8 @@ namespace Alura\Banco\Modelo;
 
 class Pessoa
 {
+    use AcessoPropriedades;
+
     protected string $nome;
     protected CPF $cpf;
 
@@ -15,7 +17,7 @@ class Pessoa
     }
 
 
-    protected function validaNome(string $nome) : void     // Assim o método só poderá ser chamado na classe PAI e nas classes FILHAS
+    final protected function validaNome(string $nome) : void     // Assim o método só poderá ser chamado na classe PAI e nas classes FILHAS
     {
         if (strlen($nome) < 5) {
             echo "Nome precisa ter pelo menos 5 caracteres";

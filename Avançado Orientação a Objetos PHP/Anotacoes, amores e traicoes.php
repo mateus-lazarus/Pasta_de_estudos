@@ -405,17 +405,191 @@ Fonte : https://stackoverflow.com/questions/4961906/when-to-implement-and-extend
 
 
 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 
 
 
+__toString : MÉTODO MÁGICO PARA TORNAR STRING
+
+Assim permite que seja possível printar o objeto diretamente
+
+    <?php
+        class Endereco
+        {
+            public function __toString()
+            {
+                return "{$this->rua}, {$this->numero}, {$this->bairro}, {$this->cidade}";
+            }
+        }
+
+        $endereco = new Endereco();
+        echo $endereco;
+    ?>
+
+    retornará :
+
+        "rua, numero, bairro, cidade"
 
 
 
+........................................................................... 
 
 
 
+MÉTODOS MÁGICOS
+
+    __call()
+        Para quando é chamado um método inexistente ou privado
+
+    __clone()
+        Criar copia de um objeto
+
+    __debugInfo()
+        Um VAR_DUMP do objeto
+
+    __get()
+        Pega o parâmetro passado diretamente
+        Exemplo : 
+            <?php
+                class Endereco
+                {
+                    public function __get(string $string)
+                    {
+                        return "EU TE VEJO. $string.";
+                    }
+                }
 
 
+                $endereco = new Endereco();
+
+                $endereco->Mateus
+            ?>
+
+        retornará :
+            "EU TE VEJO. Mateus."
+
+
+
+    __set()
+        Pega o parâmetro buscado e o valor dado
+        Exemplo : 
+            <?php
+                class Endereco
+                {
+                    private string $cidade;
+                    
+                    public function __set($parametro, $novoValor)
+                    {
+                        $metodo = strtolower($parametro);
+                        $this->$metodo = $novoValor;
+                    }
+                }
+
+                $cidadeNatal = new Endereco('São Paulo');
+                $cidadeNatal->cidade = 'Rio de Janeiro';
+
+                echo $cidadeNatal->cidade;
+            ?>
+
+        retornará :
+            "Rio de Janeiro"
+
+........................................................................... 
+
+
+
+PRIMEIRA LETRA MAISCÚLA : UCFIRST()
+
+Upper Case First
+
+    <?php
+        ucfirst($string)
+    ?>
+
+
+
+........................................................................... 
+
+
+
+ADICIONAR INFORMAÇÕES AO CÓDIGO
+
+É possível por meio do comentário de funções ou classes, utilizando o padrão "/**  */"
+
+    <?php
+
+        /**
+         * class Endereco
+         * @package Alura\Banco\Modelo
+         * @property-read string $cidade
+         * @property-read string $bairro
+         * @property-read string $rua
+         * @property-read string $numero
+        */
+
+        class Endereco
+        {
+
+        }
+
+    ?>
+
+
+    Gracas ao comentário, toda vez que tentar acessar Endereco->cidade / bairro / rua / numero o IDE irá auxiliar na indicação de método.
+
+
+
+........................................................................... 
+
+
+
+FINAL
+    Propriedade para não permitir que a CLASSE ou FUNÇÃO seja HERDADE ou SOBRESCREVIDA
+
+    <?php
+
+        final class Classe {
+            final public function getNome():
+                print();
+        }
+
+
+    ?>
+
+
+........................................................................... 
+
+
+
+TRAITS : https://www.php.net/manual/en/language.oop5.traits.php
+
+Uma forma de se contornar a questão de linguagem com single inheritance. Por meio das TRAITS é possível adicionar métodos sem utilizar herança e
+ permite maior flexibilidade no código, pois é como se o conteúdo fosse copiado e colado dentro da classe em que inserido.
+
+Há uma ordem de preferência :
+    Classes Bases > Classes com herança > Traits
+
+Exemplo : 
+
+    <?php
+        trait HelloWorld {
+            public function sayHello() {
+                echo 'Hello World!';
+            }
+        }
+        
+        class TheWorldIsNotEnough {
+            use HelloWorld;
+            public function sayHello() {
+                echo 'Hello Universe!';
+            }
+        }
+        
+        $o = new TheWorldIsNotEnough();
+        $o->sayHello();
+    ?>
+
+ 
 
 
 
