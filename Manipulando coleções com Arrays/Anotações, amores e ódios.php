@@ -124,3 +124,61 @@ SUPRIMIR ERROS
     <?php
         @include_once '...'
     ?>
+
+
+
+........................................................................... 
+
+
+
+ARRAY_DIFF : A diferença entre arrays
+
+Pode receber parâmetros e devolve um array.
+
+
+
+........................................................................... 
+
+
+
+ARRAY_MERGE : Une dois arrays (é como fazer um append para todos os elementos)
+
+
+
+........................................................................... 
+
+
+
+ARRAY_COMBINE : Torna os valores do ARRAY 1 as KEYS para acessar os valores do ARRAY 2
+    
+Denominado de ARRAY ASSOCIATIVO ou MAP.
+
+    <?php
+
+        $correntistas = [
+            'Giovanni',
+            'João'
+        ];
+
+        $saldos = [
+            3500,
+            1500
+        ];
+
+        var_dump(array_combine($correntistas, $saldos));
+
+    ?>
+
+retornará :
+    [
+    "Giovanni" => 3500,
+    "João" => 1500    
+    ]
+
+
+
+........................................................................... 
+
+
+
+

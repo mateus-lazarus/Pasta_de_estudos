@@ -1,18 +1,27 @@
 <?php
 
-namespace Estudos;
+$correntistas = [
+    'Giovanni',
+    'João',
+    'Maria',
+    'Luis',
+    'Luísa',
+    'Rafael'
+];
 
-require_once 'C:\Users\Pichau\Desktop\Aulas Alura\PHP\Estudos_em_Php\Manipulando coleções com Arrays\autoloader.php';
 
+$saldos = [
+    'Luis',
+    'Rafael'
+];
 
-$array = ['Mateus', 'João', 'Guilherme', 12, 'Cristóvão', '12', 'Geraldo'];
+$correntistasPagantes = array_diff($correntistas, $correntistasNaoPagantes);
+
 
 echo '<pre>';
 
-var_dump($array);
+var_dump($correntistasPagantes);
 
-removeElemento::removerElemento(12, $array);
-
-var_dump($array);
+array_merge
 
 ?>
