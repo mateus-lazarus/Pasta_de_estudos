@@ -1,0 +1,18 @@
+{
+    "require": {
+        "doctrine/doctrine-bundle": "^2.5",
+        "doctrine/orm": "^2.11"
+    },
+
+    "config": {
+        "allow-plugins": {
+            "composer/package-versions-deprecated": true
+        }
+    },
+
+    "autoload": {
+        "psr-4": {
+            "Alura\\Doctrine\\" : "src/"
+        }
+    }
+}
