@@ -1,16 +1,9 @@
 <?php
 
-use Alura\Doctrine\Helper\EntityManagerFactory;
+$pdo = new PDO('sqlite:'. __DIR__ . '\var\data\banco.sqlite');
+$pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
-require_once __DIR__ . '/vendor/autoload.php';
-
-
-$entityManagerFactory = new EntityManagerFactory();
-$entityManager = $entityManagerFactory->getEntityManager();
-
-var_dump($entityManager->getConnection());
-
-
+var_dump($pdo->exec('SELECT * FROM Aluno;'));
 
 
 

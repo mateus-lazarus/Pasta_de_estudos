@@ -15,7 +15,7 @@ class EntityManagerFactory
         $rootDir = __DIR__ . '/../..';
         $config = Setup::createAnnotationMetadataConfiguration(
             [$rootDir . '/src'],
-            isDevMode: true,
+            isDevMode: true
         );
 
         $connection = [
@@ -26,6 +26,3 @@ class EntityManagerFactory
         return EntityManager::create($connection, $config);
     }
 }
-
-
-?>
