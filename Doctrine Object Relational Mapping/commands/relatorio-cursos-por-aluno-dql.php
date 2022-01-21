@@ -1,7 +1,6 @@
 <?php
 
 use Alura\Doctrine\Entity\Aluno;
-use Alura\Doctrine\Entity\Curso;
 use Alura\Doctrine\Entity\Telefone;
 use Alura\Doctrine\Helper\EntityManagerFactory;
 use Doctrine\DBAL\Logging\DebugStack;
@@ -28,8 +27,10 @@ $entityManager->getConfiguration()->setSQLLogger($sqlLogger);
 // /** @var Aluno[] $alunos */
 // $alunoList = $alunosRepository->findAll();
 
-$dql = 'SELECT aluno FROM Alura\\Doctrine\\Entity\\Aluno aluno WHERE aluno.id = 2';
+$classeAluno = Aluno::class;
+$dql = "SELECT aluno, telefones, cursos FROM $classeAluno aluno JOIN aluno.telefones telefones JOIN aluno.cursos cursos";
 $query = $entityManager->createQuery($dql);
+
 $alunoList = $query->getResult();
 
 foreach ($alunoList as $aluno) {

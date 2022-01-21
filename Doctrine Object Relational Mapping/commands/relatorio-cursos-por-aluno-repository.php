@@ -1,9 +1,9 @@
 <?php
 
 use Alura\Doctrine\Entity\Aluno;
-use Alura\Doctrine\Entity\Curso;
 use Alura\Doctrine\Entity\Telefone;
 use Alura\Doctrine\Helper\EntityManagerFactory;
+use Alura\Doctrine\Repository\AlunoRepository;
 use Doctrine\DBAL\Logging\DebugStack;
 
 require_once __DIR__ . '/../vendor/autoload.php';
@@ -24,13 +24,10 @@ $entityManager->getConfiguration()->setSQLLogger($sqlLogger);
 
 // ........................................................................... 
 
+$alunosRepository = $entityManager->getRepository(Aluno::class);
 
-// /** @var Aluno[] $alunos */
-// $alunoList = $alunosRepository->findAll();
-
-$dql = 'SELECT aluno FROM Alura\\Doctrine\\Entity\\Aluno aluno WHERE aluno.id = 2';
-$query = $entityManager->createQuery($dql);
-$alunoList = $query->getResult();
+$alunoList = $alunosRepository->buscarCursosPorAluno();                     // É normal que não seja compreendido a função, pois estamos dizendo à entidade Aluno
+                                                                            //  que a forma de pesquisar seu repositório é por meio da classe AlunoRepository
 
 foreach ($alunoList as $aluno) {
     $telefones = $aluno
