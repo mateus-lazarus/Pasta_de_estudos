@@ -29,6 +29,7 @@ session_start();                // Inicializa a Sessão.
 
 use Nyholm\Psr7\Factory\Psr17Factory;
 use Nyholm\Psr7Server\ServerRequestCreator;
+use Interop\Container\ContainerInterface;
 
 $psr17Factory = new Psr17Factory();
 
@@ -47,8 +48,12 @@ $request = $creator->fromGlobals();
 use Psr\Http\Server\RequestHandlerInterface;
 
 $classeControladora = $rotas[$caminho];
+
+/** @var ContainerInterface $container */
+$container = require __DIR__ . '\..\config\dependencies.php';
+
 /** @var RequestHandlerInterface $controlador */
-$controlador = new $classeControladora();
+$controlador = $container->get($classeControladora);
 $resposta = $controlador->handle($request);
 
 

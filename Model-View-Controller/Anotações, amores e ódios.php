@@ -430,7 +430,9 @@ Interface de Contêiner
 Dependency Injection
 PSR-11 
 
-
+https://phptherightway.com/#dependency_injection
+php-di faz isso
+https://php-di.org/doc/getting-started.html
 
 
 

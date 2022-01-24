@@ -22,6 +22,9 @@ class FormularioInsercao implements RequestHandlerInterface
 
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
+        $get = $request->getQueryParams();
+        $post = $request->getParsedBody();
+
         $html = 'Resposta';
         return new Response(status: 200, headers: [], body: $html);
     }
