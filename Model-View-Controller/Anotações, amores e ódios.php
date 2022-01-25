@@ -465,6 +465,74 @@ Aprender códigos HTTP
 
 
 
+JSON ENCODE (transforma em Json)
+Para uma classe é importante implementar o JSONSERIAZABLE para retonrar um array com os dados
+
+
+class Curso implements JsonSerializable
+
+// Função específica para json conseguir acessar dados privados da função
+    public function jsonSerialize(): mixed
+    {
+        return [
+            'id' => $this->getId(),
+            'descricao' => $this->getDescricao()
+        ];
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

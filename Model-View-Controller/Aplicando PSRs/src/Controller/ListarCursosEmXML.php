@@ -9,9 +9,9 @@ use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use Nyholm\Psr7\Response;
+use SimpleXMLElement;
 
-
-class ListarCursosEmJson implements RequestHandlerInterface
+class ListarCursosEmXml implements RequestHandlerInterface
 {
     use RenderizadorDeHtmlTrait;
 
@@ -26,13 +26,25 @@ class ListarCursosEmJson implements RequestHandlerInterface
 
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
+        /** @var Curso[] $cursos */
         $cursos = $this->repositorioDeCursos->findAll();
-        $cursosJson = json_encode($cursos, JSON_PRETTY_PRINT);
+
+        $cursosEmXml = new SimpleXMLElement('<cursos/>');
+        
+        foreach ($cursos as $curso) {
+            $cursoXML = $cursosEmXml->addChild('curso');
+
+            $id = $curso->getId();
+            $descricao = $curso->getDescricao();
+
+            $cursoXML->addAttribute('id', $id );
+            $cursoXML->addAttribute('descricao', $descricao );
+        }
 
         return new Response(
             status: 200,
-            headers: ['Content-Type' => 'aplication/json'],
-            body: $cursosJson
+            headers: ['Content-Type' => 'aplication/xml'],
+            body: $cursosEmXml->asXML()
         );
     }
 

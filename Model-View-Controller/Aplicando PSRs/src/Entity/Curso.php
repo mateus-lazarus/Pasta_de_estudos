@@ -45,6 +45,9 @@ class Curso implements JsonSerializable
     // Função específica para json conseguir acessar dados privados da função
     public function jsonSerialize(): mixed
     {
-        
+        return [
+            'id' => $this->getId(),
+            'descricao' => $this->getDescricao()
+        ];
     }
 }
