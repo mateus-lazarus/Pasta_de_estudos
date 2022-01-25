@@ -5,7 +5,7 @@ namespace Alura\Cursos\Controller;
 use Alura\Cursos\Entity\Curso;
 use Alura\Cursos\Infra\EntityManagerCreator;
 
-class Exclusao extends ControllerComHtml implements InterfaceControladorRequisicao
+class Exclusao implements InterfaceControladorRequisicao
 {
     private $entityManager;
 
@@ -33,13 +33,16 @@ class Exclusao extends ControllerComHtml implements InterfaceControladorRequisic
             return;
         }
 
+        /** @var Curso $curso */
         $curso = $this->entityManager->getReference(Curso::class, $id);
+
+        $descricao = $curso->getDescricao();
 
         $this->entityManager->remove($curso);
         $this->entityManager->flush();
 
         $_SESSION['tipoMensagem'] = 'success';
-        $_SESSION['mensagem'] = 'Curso deletado com sucesso.';
+        $_SESSION['mensagem'] = "Curso  \" $descricao \"  deletado com sucesso.";
 
         header('Location: /listar-cursos', true, 302);
     }

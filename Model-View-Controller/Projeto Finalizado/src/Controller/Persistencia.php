@@ -3,11 +3,15 @@
 namespace Alura\Cursos\Controller;
 
 use Alura\Cursos\Entity\Curso;
+use Alura\Cursos\Helper\RenderizadorDeHtmlTrait;
 use Alura\Cursos\Infra\EntityManagerCreator;
 
 
-class Persistencia extends ControllerComHtml implements InterfaceControladorRequisicao
+class Persistencia implements InterfaceControladorRequisicao
 {
+    use RenderizadorDeHtmlTrait;
+
+
     private $entityManager;
 
 
@@ -49,7 +53,7 @@ class Persistencia extends ControllerComHtml implements InterfaceControladorRequ
 
             // Mensagem de confirmação
             $_SESSION['tipoMensagem'] = "success";
-            $_SESSION['mensagem'] = "Curso $descricao atualizado com sucesso.";
+            $_SESSION['mensagem'] = "Curso  \" $descricao \"  atualizado com sucesso.";
 
             } else {
 
@@ -64,7 +68,7 @@ class Persistencia extends ControllerComHtml implements InterfaceControladorRequ
 
             // Mensagem de confirmação
             $_SESSION['tipoMensagem'] = "success";
-            $_SESSION['mensagem'] = "Curso $descricao adicionado com sucesso.";
+            $_SESSION['mensagem'] = "Curso  \" $descricao \"  adicionado com sucesso.";
         }
 
         $this->entityManager->flush();

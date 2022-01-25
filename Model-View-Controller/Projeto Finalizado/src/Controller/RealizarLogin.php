@@ -3,11 +3,15 @@
 namespace Alura\Cursos\Controller;
 
 use Alura\Cursos\Entity\Usuario;
+use Alura\Cursos\Helper\RenderizadorDeHtmlTrait;
 use Alura\Cursos\Infra\EntityManagerCreator;
 
 
-class RealizarLogin extends ControllerComHtml implements InterfaceControladorRequisicao
+class RealizarLogin implements InterfaceControladorRequisicao
 {
+    use RenderizadorDeHtmlTrait;
+
+
     private $repositorioDeUsuarios;
 
 

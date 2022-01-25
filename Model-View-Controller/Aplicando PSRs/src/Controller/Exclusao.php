@@ -3,6 +3,7 @@
 namespace Alura\Cursos\Controller;
 
 use Alura\Cursos\Entity\Curso;
+use Alura\Cursos\Helper\FlashMessageTrait;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
@@ -11,6 +12,9 @@ use Nyholm\Psr7\Response;
 
 class Exclusao implements RequestHandlerInterface
 {
+    use FlashMessageTrait;
+
+
     private $entityManager;
 
 
@@ -24,17 +28,14 @@ class Exclusao implements RequestHandlerInterface
     {
         $idEntidade = filter_var($request->getQueryParams()['id'], FILTER_VALIDATE_INT);
 
+        /** @var Curso $entidade */
         $entidade = $this->entityManager->getReference(Curso::class, $idEntidade);
+        $descricao =  $entidade->getDescricao();
         $this->entityManager->remove($entidade);
         $this->entityManager->flush();
 
-        return new Response(status: 302, headers: ['Location' => '/novo-curso']);
+        $this->defineMensagem('success', "Curso  \" $descricao \"  deletado com sucesso.");
+
+        return new Response(status: 302, headers: ['Location' => '/listar-cursos']);
     }
 }
-
-
-
-
-
-
-?>

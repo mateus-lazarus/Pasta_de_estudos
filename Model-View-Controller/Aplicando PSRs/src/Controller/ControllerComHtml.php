@@ -1,9 +1,11 @@
 <?php
 
-namespace Alura\Cursos\Helper;
+// TROCADO POR UMA TRAIT PARA AUMENTAR O ENCAPSULAMENTO DO CÓDIGO.
+
+namespace Alura\Cursos\Controller;
 
 
-trait RenderizadorDeHtmlTrait
+abstract class ControllerComHtml
 {
     public function renderizaHtml(string $caminhoTemplate, array $dados) : string
     {
@@ -18,3 +20,4 @@ trait RenderizadorDeHtmlTrait
         return $html;
     }
 }
+?>

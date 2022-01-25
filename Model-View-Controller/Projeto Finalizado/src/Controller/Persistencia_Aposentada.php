@@ -3,11 +3,15 @@
 namespace Alura\Cursos\Controller;
 
 use Alura\Cursos\Entity\Curso;
+use Alura\Cursos\Helper\RenderizadorDeHtmlTrait;
 use Alura\Cursos\Infra\EntityManagerCreator;
 
 
-class PersistenciaAposentada extends ControllerComHtml implements InterfaceControladorRequisicao
+class PersistenciaAposentada implements InterfaceControladorRequisicao
 {
+    use RenderizadorDeHtmlTrait;
+
+
     private $entityManager;
 
 

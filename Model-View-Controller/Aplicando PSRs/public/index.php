@@ -16,12 +16,12 @@ if (!array_key_exists($caminho, $rotas) ) {
 session_start();                // Inicializa a Sessão.
 
 
-// // Verifica se o usuário já está logado no nosso site
-// $ehRotaDeLogin = stripos($caminho, 'login');                    // Porque temos dois caminhos que são para login. /login e /realiza-login
-// if (!isset($_SESSION['logado']) && $ehRotaDeLogin === false ) {
-//     header('LOCATION: /login');
-//     exit();
-// }
+// Verifica se o usuário já está logado no nosso site
+$ehRotaDeLogin = stripos($caminho, 'login');                    // Porque temos dois caminhos que são para login. /login e /realiza-login
+if (!isset($_SESSION['logado']) && $ehRotaDeLogin === false ) {
+    header('LOCATION: /login');
+    exit();
+}
 
 
 
