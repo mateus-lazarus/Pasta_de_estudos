@@ -494,6 +494,16 @@ class Curso implements JsonSerializable
 
 
 
+SimpleXMLElement
+
+Cria um arquivo XML, está atrás do JSON, mas ainda pode ser útil de alguma forma.
+
+
+
+
+
+
+
 
 
 
