@@ -11,6 +11,7 @@ use App\Models\Serie;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
 
+use App\Http\Requests\SeriesFormRequest;
 
 class SeriesController extends BaseController
 {
@@ -51,11 +52,19 @@ class SeriesController extends BaseController
     }
 
 
-    public function store(Request $request)
+    public function store(SeriesFormRequest $request)
     {
-        $request->validate([
-            'nomeSerie' => 'required'
-        ]);
+        // Forma de se validar dados dentro do Controlador
+        // $validator = Validator::make($request->all(), [
+        //     'nomeSerie' => 'required|min:3|max:255'
+        // ]);
+
+        // if ($validator->fails()) {
+        //     return redirect('/series/create')
+        //         ->withErrors($validator)
+        //         ->withInput();
+        // }
+            
 
         $nomeSerie = $request->get('nomeSerie');            // Pesquisa dentre todas as variáveis do Requsest a que possue tal nome
 

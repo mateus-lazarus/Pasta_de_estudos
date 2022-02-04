@@ -35,7 +35,7 @@ resposta :
 
 
 
-ROUTE LARAVEL
+ROUTE LARAVEL       :       https://laravel.com/docs/8.x/routing
 
 O Laravel já possui um arquivo de rotas para o nosso site, ele se encontra em ROUTES\WEB.PHP na pasta de instalação das dependências
 
@@ -76,7 +76,15 @@ LARAVEL É UM SOFTWARE MVC
 
 Dentro do Laravel já existe a pasta de CONTROLLERS em APP/HTTP/CONTROLLERS
 
-a pasta de VIEWS em RESOURCES/VIEWS
+ROTAS : routes\web.php
+(possui diversas formas de rotas)
+
+MODEL : app\Models
+
+VIEW : resources\views
+
+CONTROLLER : app\Http\Controllers
+
 
 
 
@@ -267,7 +275,7 @@ Entidade::query()       //  Busca todas entidades do tipo cadastradas
 
 
 
-ACTIVE RECORD
+ACTIVE RECORD   :   http://www.laravelinterviewquestions.com/trick/active-record-implementation-in-laravel-mjg/#:~:text=Active%20Record%20Implementation%20is%20an,Active%20Records%20by%20Eloquent%20ORM.
 
 O Laravel utiliza de um padrão conhecido como ACTIVE RECORD, visa melhorar a produtividade aglutinando CONVERSA COM BANCO DE DADOS e 
     REGRAS DE NEGÓCIO na mesma classe
@@ -297,7 +305,7 @@ O Laravel utiliza de um padrão conhecido como ACTIVE RECORD, visa melhorar a pr
 
 
 
-@csrf
+@csrf       :       
 
 Dentro do formulário para averiguar que é uma informação vindo de um formulário já definido dentro da aplicação
 
@@ -492,8 +500,20 @@ E pode-se usar tal parâmetro para REDIRECIONAR
 VALIDAÇÃO DE REQUEST - LARAVEL          :       https://laravel.com/docs/8.x/validation#quick-writing-the-validation-logic
 
 Lê se a informação está de acordo, e caso contrário retorna para a última página acessada.
+É uma forma de criar validações dentro de um CONTROLLER.
 
 
+    <?php
+        $validator = Validator::make($request->all(), [
+                    'NOME/ID DO INPUT' => 'required|min:3|max:255'
+                ]);
+
+        if ($validator->fails()) {
+            return redirect('/series/create') // redirecionamento para a MESMA PÁGINA 
+                ->withErrors($validator)
+                ->withInput();
+        }
+    ?>
 
 
 
@@ -513,25 +533,74 @@ Também há um código disponibilizado pela própria documentação para exibir 
 
 
 
+A outra maneira é criar um request específico
+
+FORM REQUEST - LARAVEL
+
+É possível criar requests no Laravel para aplicar regras de validação, e uma aplicação são formulários.
+
+No CMD : 
+    php artisan make:request Nome_do_request
 
 
+Será criado um novo arquivo em Http/Requests e lá haverá as condições :
+    1. O usuário precisa estar logado para acessar?
+    2. Regras de validação
 
 
+    <?php
+
+        class SeriesFormRequest extends FormRequest
+        {
+            /**
+             * Determine if the user is authorized to make this request.
+             *
+             * @return bool
+             */
+            public function authorize()
+            {
+                return true;
+            }
+
+            /**
+             * Get the validation rules that apply to the request.
+             *
+             * @return array
+             */
+            public function rules()
+            {
+                return [
+                    'nomeSerie' => 'required|min:3|max:255'
+                ];
+            }
+        }
+
+    ?>
 
 
+    Agora no recebimento do Request
+
+    <?php
+
+        // Não mais apenas Request, agora é o SeriesFormRequest
+        // function store(Request $request)
+        function store(SeriesFormRequest $request)
+        {
+                
+
+            $nomeSerie = $request->get('nomeSerie');            // Pesquisa dentre todas as variáveis do Requsest a que possue tal nome
 
 
+            $serie = Serie::create([
+                'nome' => $nomeSerie
+            ]);
 
+            $request->session()->flash('mensagem', "Serie ( {$serie->nome} : {$serie->id} ) criada com sucesso.");
+            
+            return redirect()->route('listar_series');
+        }
 
-
-
-
-
-
-
-
-
-
+    ?>
 
 
 
