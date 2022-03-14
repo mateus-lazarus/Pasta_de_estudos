@@ -1,0 +1,17 @@
+﻿<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+<body>
+    <h3>Para Ler</h3>
+    <ul>
+        @foreach(var livro in ViewBag.Livros)
+        {
+            <li>@livro.Titulo - @livro.Autor</li>
+        }
+    </ul>
+</body>
+</html>

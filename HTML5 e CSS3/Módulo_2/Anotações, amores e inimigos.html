@@ -1,0 +1,277 @@
+Linkar páginas
+
+<a href="index.html">Hiperlink aqui</a>
+
+<a> : âncora que leva a outro link
+
+HREF : propriedade de localização [absolute or relative path]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+
+É possível criar tags e registrá-las no arquivo CSS desde que NÃO CONFLITE
+
+    <batcaverna>
+        <raivosa>
+            <p>Demonstrando!</p>
+        </raivosa>
+    </batcaverna>
+
+
+    Em CSS :
+
+    batcaverna raivosa {
+        color: pink
+    }
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+
+
+Efeitos do navegador de forma automática (como links já clicados em azul mais escuro ou sublinhados)
+    Propriedade TEXT-DECORATION
+
+    .textclass {
+        text-decoration: none
+    }
+
+Todo o texto em exibição como maiúsculo
+    Propriedade TEXT-TRANSFORM
+
+    .textclass {
+        text-transform: uppercase;
+    }
+
+
+
+........................................................................... 
+
+
+
+Existe um arquivo padrão que RETIRA FORMATAÇÕES AUTOMÁTICAS do navegador. Reset css
+
+<link rel="stylesheet" href="reset.css">
+
+e, obrigatoriamente, existe a necessidade que ele venha primeiro para que não limpe as formatações personalizadas feitas adiante
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+
+Mover um elemento de forma "livre" na página
+    Position > relative
+    indique as distâncias da posição inicial (top, bottom, left, right)
+
+    .textclass {
+        position: relative;
+        bottom: 100px;
+        left: 100px
+    }
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+
+
+Mover um elemento de forma "livre" na página
+    Position > absolute
+    indique as distâncias absolutas em relação à página (top, bottom, left, right)
+
+    .textclass {
+        position: absolute;
+        top: 0px;
+        left: 0px
+    }
+
+assim o elemento estará fixo no canto SUPERIOR DIREITO
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+
+
+Para centralizar ou encaixar 2 ou mais elementos dentro de algo maior, é utilizado o div para englobar todos elementos
+
+<div class="caixa">
+    <h1><img src="logo.png"></h1>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="produtos.html">Produtos</a></li>
+            <li><a href="contatos.html">Contato</a></li>
+        </ul>
+    </nav>
+</div>
+
+
+.caixa {
+	position: relative;
+	width: 940px;
+	margin: 0 auto;
+}
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+
+
+<main> tag específica para PARTE PRINCIPAL do conteúdo html
+
+<body>
+    <header>
+    </header>
+    
+    <main>
+    </main>
+</body>
+
+........................................................................... 
+
+
+
+Como fazer uma borda a um elemento
+
+Propriedade BORDER
+
+    .textclass{
+        border : [width] [style] [color]
+    }
+
+
+Propriedade BORDER-RADIUS
+
+    .textclass{
+        border: [width] [style] [color]
+        border-radius: [radius]
+    }
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+
+
+Box-sizing
+
+width + padding + border = actual width of an element
+height + padding + border = actual height of an element
+
+Defines how the width and height of an element are calculated: should they include padding and borders, or not
+
+Exemplo : 
+
+TAMANHOS DIFERENTES, mas mesmo tamanho de largura e altura
+
+.div1 {
+    width: 300px;
+    height: 100px;
+    border: 1px solid blue;
+  }
+  
+  .div2 {
+    width: 300px;
+    height: 100px;
+    padding: 50px;
+    border: 1px solid red;
+  }
+
+    
+TAMANHOS IGUAIS
+
+.div1 {
+    width: 300px;
+    height: 100px;
+    border: 1px solid blue;
+    box-sizing: border-box;
+  }
+  
+  .div2 {
+    width: 300px;
+    height: 100px;
+    padding: 50px;
+    border: 1px solid red;
+    box-sizing: border-box;
+  }
+
+
+
+........................................................................... 
+
+
+
+Para haver mudança de estilo quando passar o mouse em cima
+    use o EVENTO * :hover *  na tag de determinado elemento
+
+    nav a {
+        text-transform: uppercase;
+        color: #000000;
+        font-weight: bold;
+        font-size: 22px;
+        text-decoration: none;
+    }
+    
+    nav a:hover {
+        color: yellow;
+        text-decoration: underline;
+    }
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+
+
+Para acessar o evento de MOUSE CLICKADO usa-se * :active *
+
+nav a {
+    text-transform: uppercase;
+    color: #000000;
+    font-weight: bold;
+    font-size: 22px;
+    text-decoration: none;
+}
+
+nav a:active {
+    color: green;
+    text-decoration: underline;
+}
+
+
+
+........................................................................... 
+
+
+
+Condicionar certo elemento a ser modificado em função de outro CSS
+
+[.produtos li:active] {.produto-preco}
+
+	[Condicionamento]
+	{Objeto de Modificação}
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+
+
+Tag de RODAPÉ específica
+<footer>
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+
+
+Utilizar IMAGEM COMO BACKGROUND
+
+background = url(Arquivo desejado para fundo)
+	
+	usa-se uma imagem curta que permite que o CSS replique essa imagem para uma disposição total do background, assim escolhendo utilizar de PROCESSAMENTO e não de DOWNLOAD do usuário
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

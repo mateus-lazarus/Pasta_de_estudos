@@ -1,0 +1,24 @@
+﻿// Code snippet
+"prop" é um pedacinho de código que monta para você o modelo :
+public int MyProperty { get; set; }
+
+Somado a isso não é necessário sempre utilizar private int _myProperty antes, mas permite que seja possível tratar um Getter ou Setter sem alterar uma
+	única linha de código nos demais arquivos
+
+
+
+
+
+// Contrutor de objetos
+public NomeDaClasse( args[] )
+        {
+            // Métodos e validações do construtor
+        }
+
+
+
+
+// Para tornar privado métodos de GETTERS, SETTERS já na variável
+//      É possível utilizar da palavra-chave "private" para manipular quem pode interagir com o método
+
+public static int TotalDeContasCriadas { get; private set; }

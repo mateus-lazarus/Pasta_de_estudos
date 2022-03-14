@@ -1,0 +1,35 @@
+MEMBROS DE UMA CLASSE NÃO PRECISAM (NA MAIORIA) DE LÓGICA PARA SEREM ACESSADOS
+
+- Errado :
+	public double Bonificacao
+	{
+		get
+		{
+			return Salario * 0.10;
+		}
+		private set;
+	}
+	
+- Certo :
+	public double GetBonificacao()
+	{
+		return Salario * 0.10;
+	}
+	
+	
+	
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+
+
+
+ATALHOS VISUAL STUDIO
+
+- Ver Correções:
+	ALT + ENTER
+		ou
+	CTRL + .
+	
+
+
+
+
