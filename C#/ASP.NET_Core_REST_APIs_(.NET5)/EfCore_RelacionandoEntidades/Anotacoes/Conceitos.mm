@@ -151,8 +151,7 @@
   <body>
     <img src="Conceitos_1886441926058428735.jpeg" />
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 <node CREATED="1648045726086" HGAP="21" ID="ID_502253841" MODIFIED="1648045924755" VSHIFT="33">
 <richcontent TYPE="NODE"><html>
@@ -187,8 +186,7 @@
   <body>
     <img src="Conceitos_7690611098593635424.jpeg" />
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 </node>
 <node CREATED="1648046120499" HGAP="19" ID="ID_559320614" MODIFIED="1648046234109" TEXT="Se n&#xe3;o, adicione a observa&#xe7;&#xe3;o" VSHIFT="22">
@@ -201,11 +199,39 @@
   <body>
     <img src="Conceitos_6846015522215940703.jpeg" />
   </body>
+</html></richcontent>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1648236043832" HGAP="23" ID="ID_28333040" MODIFIED="1648236071303" POSITION="left" TEXT="IEnumerable&lt;&gt;">
+<node CREATED="1648236049618" HGAP="24" ID="ID_474556295" MODIFIED="1648236072631" TEXT="Criar query" VSHIFT="-9">
+<node CREATED="1648236054777" HGAP="44" ID="ID_1871895834" MODIFIED="1648236104635" TEXT="&#xc9; poss&#xed;vel criar queries parecidas com a de um Sql" VSHIFT="-41"/>
+<node CREATED="1648236080146" ID="ID_1547921886" MODIFIED="1648236101971">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Selecionar apenas elementos com<br />&#160;subelementos com esta valida&#231;&#227;o
+    </p>
+  </body>
 </html>
 </richcontent>
-</node>
-</node>
-</node>
+<node CREATED="1648236137841" HGAP="55" ID="ID_631205480" MODIFIED="1648236142186" VSHIFT="9">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <img src="Conceitos_1018741801850701980.jpeg" />
+  </body>
+</html>
+</richcontent>
 </node>
 </node>
 </node>
