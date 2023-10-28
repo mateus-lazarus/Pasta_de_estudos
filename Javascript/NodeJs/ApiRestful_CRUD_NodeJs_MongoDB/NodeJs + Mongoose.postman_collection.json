@@ -1,0 +1,115 @@
+{
+	"info": {
+		"_postman_id": "054536de-d962-45bb-a95a-c8f3c45af1f7",
+		"name": "NodeJs + Mongoose",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "20719940",
+		"_collection_link": "https://stone-credit-tribe.postman.co/workspace/My-Workspace~79c2a24f-e32a-4f79-8bbf-35ac51178b1a/collection/20719940-054536de-d962-45bb-a95a-c8f3c45af1f7?action=share&source=collection_link&creator=20719940"
+	},
+	"item": [
+		{
+			"name": "Index",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{Base_Url}}/"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Person",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Pessoa2\",\r\n    \"salary\": \"9000\",\r\n    \"approved\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{Base_Url}}/person"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Person",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Pessoa3\",\r\n    \"salary\": \"9000\",\r\n    \"approved\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{Base_Url}}/person/{{Person_Id}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Person By Id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "{{Base_Url}}/person/{{Person_Id}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Search Person",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{Base_Url}}/person"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Person By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{Base_Url}}/person/{{Person_Id}}"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "Base_Url",
+			"value": "http://localhost:3000",
+			"type": "string"
+		},
+		{
+			"key": "Person_Id",
+			"value": "653d36cfb1c8c107aba0b79f",
+			"type": "string"
+		}
+	]
+}
