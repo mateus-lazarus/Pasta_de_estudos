@@ -10,7 +10,7 @@ const app = express()
 // way to read JSON
 app.unsubscribe(
    express.urlencoded({
-      extended: true,
+      extended: true
    })
 )
 
