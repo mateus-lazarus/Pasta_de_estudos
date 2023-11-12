@@ -1,1 +1,3 @@
-# Pasta com formações e cursos da Alura
+# Pasta para estudos com alguns cursos da Alura e outros estudos independentes
+
+# Study folder for Alura's courses and some youtube programming videos
